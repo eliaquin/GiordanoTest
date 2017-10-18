@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Pagina principal Geordano</h2>
+
+<div>
+    <div class="row">
+        <div class="col-sm-5">
+            <label>Nombre</label>
+            <input id="nombreAmigo" type="text" class="form-control" />
+        </div>
+        <div class="col-sm-5">
+            <label>Edad</label>
+            <input id="edadAmigo" type="text" class="form-control" />
+        </div>
+        <div class="col-sm-2">
+            <button class="btn btn-primary" style="margin-top: 24px" onclick="guardarAmigos()">Guardar</button>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/axios.min.js"></script>
+<script src="~/AppScripts/amigo.js"></script>
