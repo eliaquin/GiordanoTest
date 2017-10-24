@@ -5,20 +5,39 @@
 
 <h2>Pagina principal Geordano</h2>
 
-<div>
+<div id="app">
     <div class="row">
         <div class="col-sm-5">
             <label>Nombre</label>
-            <input id="nombreAmigo" type="text" class="form-control" />
+            <input v-model="Amigo.Nombre" type="text" class="form-control" />
         </div>
         <div class="col-sm-5">
             <label>Edad</label>
-            <input id="edadAmigo" type="text" class="form-control" />
+            <input v-model="Amigo.Edad" type="text" class="form-control" />
         </div>
         <div class="col-sm-2">
-            <button class="btn btn-primary" style="margin-top: 24px" onclick="guardarAmigos()">Guardar</button>
+            <button class="btn btn-primary" style="margin-top: 24px" v-on:click="guardarAmigos()" v-bind:disabled="!camposLlenos">Guardar</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Edad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="amigo in Amigos">
+                        <td v-text="amigo.Nombre"></td>
+                        <td v-text="amigo.Edad"></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
+<script src="~/Scripts/vue.js"></script>
 <script src="~/Scripts/axios.min.js"></script>
 <script src="~/AppScripts/amigo.js"></script>

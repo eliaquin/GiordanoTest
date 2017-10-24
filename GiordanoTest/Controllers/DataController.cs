@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using GiordanoTest.Models;
 
@@ -20,6 +17,13 @@ namespace GiordanoTest.Controllers
             _db.Amigos.Add(amigo);
             var registro = _db.SaveChanges();
             return registro > 0;
+        }
+
+        [HttpGet]
+        [Route("buscaramigos")]
+        public IEnumerable<Amigo> BuscarAmigos()
+        {
+            return _db.Amigos.Select(x => x);
         }
     }
 }
